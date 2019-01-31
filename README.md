@@ -11,7 +11,7 @@ algorithms and also by performing parameters tuning.
 The following tables shows the output from executing the "cross_validate" command on all algorithms made available by the [Surprise](http://surpriselib.com/) library. To use all CPU-cores on the machine we just have to set the parameter `n_jobs` on the cross_validate function to -1. The algorithms with better results than all basic algorithms are: **SVD**, **SVD++** and **KNNBaseline**. <br/>
 
 **Normal Predictor** <br/>
-<p align='center'>
+<p align="center">
  
 | |**Fold 1**|**Fold 2**|**Fold 3**|**Fold 4**|**Fold 5**|**Mean**|**Std**|
 |---|---|---|---|---|---|---|---|
