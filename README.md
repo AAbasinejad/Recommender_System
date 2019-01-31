@@ -15,8 +15,8 @@ The following tables shows the output from executing the "cross_validate" comman
 | |**Fold 1**|**Fold 2**|**Fold 3**|**Fold 4**|**Fold 5**|**Mean**|**Std**|
 |---|---|---|---|---|---|---|---|
 |RMSE (testset)|1.5028|1.5021|1.5066|1.5073|1.5042|1.5046|0.0020|
-|Fit time|0.16|0.16|0.31|0.16|0.16|0.19|0.06|
-|Test time|0.46|0.76|0.52|0.50|0.47|0.54|0.11|
+|Fit time(s)|0.16|0.16|0.31|0.16|0.16|0.19|0.06|
+|Test time(s)|0.46|0.76|0.52|0.50|0.47|0.54|0.11|
 
 **BaselineOnly** <br/>
 
