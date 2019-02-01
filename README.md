@@ -115,6 +115,7 @@ param_grid = {
 ```
 <br/>
 The configuration of the best estimator was: <br/>
+
 ```python
 {
 'n_factors': 50,
@@ -124,6 +125,7 @@ The configuration of the best estimator was: <br/>
 }
 ```
 <br/>
+
 The average-RMSE of the best estimator was: **0.894** <br/>
 The time taken to find the best estimator was **1582** seconds, or **26** minutes and **22** seconds. <br/>
 A total of **8** CPU-cores were used. To use all the CPU-cores we set the parameter `n_jobs` on the GridSearchCV
