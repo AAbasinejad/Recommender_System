@@ -158,4 +158,4 @@ The offline part is responsible for computing the PageRank vectors using the Top
 
 where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M<sub>i</sub> for category *i*. <br/>
 
-4. Create initial PageRank vectors (one for each category) of size N (total number of nodes in the graph) and assign an initial value equal to \frac{1}{N} for each element in the vectors. This is the result of the PageRank calculation, let's call it Pr<sub>i</sub> for category *i*.
+4. Create initial PageRank vectors (one for each category) of size N (total number of nodes in the graph) and assign an initial value equal to $$\frac{1}{N}$$ for each element in the vectors. This is the result of the PageRank calculation, let's call it Pr<sub>i</sub> for category *i*.
