@@ -166,9 +166,11 @@ where **_S_** is the total number of movies in category **_C_**. This will be us
 
 ![](http://latex.codecogs.com/gif.latex?Pr_i%20%3D%20%5Calpha%20%5Ctimes%20Pr_i%20%5Ctimes%20T%20&plus;%20%281-%5Calpha%29%20%5Ctimes%20M_i)
 <br/>
+
 The result of this method is five PageRank vectors, one for each category. What this method does differently from normal PageRank is that during the iteration for category i the teleportation procedure only happens to movies in category i with uniform probability. This means that the random surfer when is teleported will not land in a movie outside category i, thus, creating a bias towards movies in category i. <br/>
 
 **_Online_**<br/>
+
 The online part is responsible for generating the sorted list of recommended movies based on a preference vector of the user, and is quite a simple procedure. <br/>
 First we take the five PageRank vectors that were generated on the offline part, then we do a linear combination between these vectors times the normalized preference vector of the user. This will generate a list of PageRank values, one for each each movie in the original graph, that can be showed to the user as recommended movies. <br/>
 
