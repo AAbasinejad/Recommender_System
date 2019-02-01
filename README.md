@@ -142,13 +142,18 @@ To complete this part we filled the required pieces of code to complete the impl
 <br/>
 The average R-Precision is averaged over all pairs (training-set, test-set), and the execution time refers to the time to execute all the functions (including loading/creating the graphs and so on...)<br/>
 #### Part 2.2
+
 In this part we had to implement a recommendation method based on Topic Specfic PageRank where the training part happens offline and the prediction happens online, meaning, PageRank is not computed on recommendation time. <br/>
 
-**_Offline_**
+**_Offline_**<br/>
+
 The offline part is responsible for computing the PageRank vectors using the Topic Specific PageRank approach. The algorithm is as following:<br/>
 
 1. Create the movie-movie graph where each node is a movie and if there is a relation between two movies they have a weigthed edge between them. Let's call this graph **_G_**.<br/>
 2. Get the normalized adjacency matrix from **_G_**. This is the transition probability matrix of the Markov Chain, let's call it **_T_**.
 3. For each movie category **_C_** create a vector where each element, <br/>
-<p align="center"> ![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D) </p> <br/>
-where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M_i for category _i_.
+
+<p align="center"> ![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D) </p> 
+<br/>
+
+where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M<sub>i</sub> for category *i*.
