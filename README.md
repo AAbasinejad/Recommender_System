@@ -7,7 +7,7 @@ This composed of two parts: **Recommendation-System** and **Recommendation/Predi
 In this part of the project we have tried to improve the performance of a recommendation-system by using non-trivial
 algorithms and also by performing parameters tuning.
 
-#### Part 1-1 
+#### Part 1.1 
 The following tables shows the output from executing the "cross_validate" command on all algorithms made available by the [Surprise](http://surpriselib.com/) library. To use all CPU-cores on the machine we just have to set the parameter `n_jobs` on the cross_validate function to -1. The algorithms with better results than all basic algorithms are: **SVD**, **SVD++** and **KNNBaseline**. <br/>
 
 **Normal Predictor** <br/>
@@ -98,4 +98,57 @@ The following tables shows the output from executing the "cross_validate" comman
 |Fit time|2.71|2.65|2.41|2.94|2.35|2.61|0.22|
 |Test time|0.72|0.42|0.38|0.38|0.37|0.45|0.14|
 
-#### Part 1-2
+#### Part 1.2
+For this part we chose to run the SVD algorithm, because it has a good RMSE (but not the best) and a good
+execution time, thus providing the best trade-off between execution time and RMSE result. We take in
+consideration both fit time and test time, since fitting the algorithm only happens once, the test time is a more
+important measure. <br/>
+
+The Grid of Parameters used was the following: <br/>
+```python
+param_grid = {
+'n_factors': [50, 100, 200],
+'n_epochs': [10, 20, 30],
+'lr_all': [0.002, 0.005, 0.01],
+'reg_all': [0.01, 0.02, 0.04]
+}
+```
+<br/>
+The configuration of the best estimator was: <br/>
+```python
+{
+'n_factors': 50,
+'n_epochs': 30,
+'lr_all': 0.005,
+'reg_all': 0.04
+}
+```
+<br/>
+The average-RMSE of the best estimator was: **0.894** <br/>
+The time taken to find the best estimator was **1582** seconds, or **26** minutes and **22** seconds. <br/>
+A total of **8** CPU-cores were used. To use all the CPU-cores we set the parameter `n_jobs` on the GridSearchCV
+method to -1.<br/>
+
+### Part 2
+------
+In this part of the project we implement a recommendation/prediction method using a particular link-analysis procedure ([Topic Specific PageRank](https://nlp.stanford.edu/IR-book/html/htmledition/topic-specific-pagerank-1.html)). We used the R-Precision metric to evaulate the quality of the provided method.<br>
+
+#### Part 2.1
+To complete this part we filled the required pieces of code to complete the implementation of Topic Specific PageRank and got the following results: <br/>
+
+|Average R-precision|Execution Time (seconds)|
+|---|---|
+|0.169513853715|244|
+<br/>
+The average R-Precision is averaged over all pairs (training-set, test-set), and the execution time refers to the time to execute all the functions (including loading/creating the graphs and so on...)<br/>
+#### Part 2.2
+In this part we had to implement a recommendation method based on Topic Specfic PageRank where the training part happens offline and the prediction happens online, meaning, PageRank is not computed on recommendation time. <br/>
+
+**_Offline_**
+The offline part is responsible for computing the PageRank vectors using the Topic Specific PageRank approach. The algorithm is as following:<br/>
+
+1. Create the movie-movie graph where each node is a movie and if there is a relation between two movies they have a weigthed edge between them. Let's call this graph **_G_**.<br/>
+2. Get the normalized adjacency matrix from **_G_**. This is the transition probability matrix of the Markov Chain, let's call it **_T_**.
+3. For each movie category **_C_** create a vector where each element, <br/>
+<p align="center"> ![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D) </p> <br/>
+where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M_i for category _i_.
