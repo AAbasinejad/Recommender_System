@@ -1,5 +1,5 @@
 # Recommender Systems
-This composed of two parts: **Recommendation-System** and **Recommendation/Prediction-with-PageRank**.
+This project composed of two parts: **Recommendation-System** and **Recommendation/Prediction-with-PageRank**.
 
 
 ### Part 1
