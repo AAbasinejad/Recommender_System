@@ -141,8 +141,8 @@ To complete this part we filled the required pieces of code to complete the impl
 |0.169513853715|244|
 <br/>
 The average R-Precision is averaged over all pairs (training-set, test-set), and the execution time refers to the time to execute all the functions (including loading/creating the graphs and so on...)<br/>
-#### Part 2.2
 
+#### Part 2.2
 In this part we had to implement a recommendation method based on Topic Specfic PageRank where the training part happens offline and the prediction happens online, meaning, PageRank is not computed on recommendation time. <br/>
 
 **_Offline_**<br/>
@@ -156,4 +156,6 @@ The offline part is responsible for computing the PageRank vectors using the Top
 ![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D)
 <br/>
 
-where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M<sub>i</sub> for category *i*.
+where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M<sub>i</sub> for category *i*. <br/>
+
+4. Create initial PageRank vectors (one for each category) of size N (total number of nodes in the graph) and assign an initial value equal to \frac{1}{N} for each element in the vectors. This is the result of the PageRank calculation, let's call it Pr<sub>i</sub> for category *i*.
