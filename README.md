@@ -153,7 +153,7 @@ The offline part is responsible for computing the PageRank vectors using the Top
 2. Get the normalized adjacency matrix from **_G_**. This is the transition probability matrix of the Markov Chain, let's call it **_T_**.
 3. For each movie category **_C_** create a vector where each element, <br/>
 
-<p align="center"> ![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D) </p> 
+<p align="center">![](http://latex.codecogs.com/gif.latex?e_i%20%3D%20%5Cbegin%7Bcases%7D%20%26%20%5Cfrac%7B1%7D%7Bs%7D%20%5Ctext%7B%20if%20%7D%20i%5Cin%20C%20%5C%5C%20%26%20%5Ctext%7B0%20otherwise%7D%20%5Cend%7Bcases%7D)</p> 
 <br/>
 
 where **_S_** is the total number of movies in category **_C_**. This will be used to bias the teleportation on the transition probability matrix. Let's call this vector M<sub>i</sub> for category *i*.
